@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mini Proyecto Rápido</title>
+  <title>Mini Proyecto Rancio</title>
   <style>
     body {
       display: flex;
@@ -15,13 +15,21 @@
       font-family: Arial, sans-serif;
       text-align: center;
     }
-    button { margin: 10px; padding: 10px 20px; cursor: pointer; border: none; border-radius: 5px; background-color: #444; color: white; }
+    button { 
+      margin: 10px; 
+      padding: 10px 20px; 
+      cursor: pointer; 
+      border: none; 
+      border-radius: 5px; 
+      background-color: #444; 
+      color: white; 
+    }
     button:hover { background-color: #666; }
   </style>
 </head>
 <body>
 
-<h1 id="mensaje">¡Hola!</h1>
+<h1 id="mensaje">Hola, solo quería decirte algo importante.</h1>
 <button onclick="cambiarMensaje()">Cambiar mensaje</button>
 <p>Clicks: <span id="contador">0</span></p>
 <button onclick="sumarClick()">Sumar click</button>
@@ -29,8 +37,14 @@
 
 <script>
 function cambiarMensaje() {
-  const mensajes = [ "Hola", "Solo queria decirte algo importante","Bueno, en realidad no tanto","Solo queria que leyeras esto hasta acá","Felicitaciones por nada JAJAAJAJJA"];
-  document.getElementById('mensaje').innerText = mensajes[Math.floor(Math.random()*mensajes.length)];
+  const mensajes = [
+    "Hola, solo quería decirte algo importante.\nBueno, en realidad no tanto.\nSolo quería que leyeras esto hasta acá.\nFelicitaciones por nada.\nAdiós.",
+    "Leíste esto… bravo.\nO no, no importa.\nNada que ver, solo te hice perder un minuto.\nAdiós.",
+    "Hola, sí, a vos…\nQuería darte un consejo secreto que cambiaría todo.\nNah, mentira.\nSolo queríamos verte leer hasta aquí.\nFelicitaciones por nada."
+  ];
+  // Reemplaza los saltos de línea por un salto en HTML
+  const mensajeConSaltos = mensajes[Math.floor(Math.random()*mensajes.length)].replace(/\n/g, "\n");
+  document.getElementById('mensaje').innerText = mensajeConSaltos;
 }
 
 function sumarClick() {
