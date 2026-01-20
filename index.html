@@ -2,10 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mensaje Rancio</title>
+  <title>Mini Proyecto Rápido</title>
   <style>
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -13,40 +14,35 @@
       color: #eee;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 20px;
     }
-    #mensaje {
-      border: 2px solid #eee;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 400px;
-      line-height: 1.5;
-    }
-    button {
-      margin-top: 15px;
-      padding: 8px 20px;
-      cursor: pointer;
-      background-color: #444;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #666;
-    }
+    button { margin: 10px; padding: 10px 20px; cursor: pointer; border: none; border-radius: 5px; background-color: #444; color: white; }
+    button:hover { background-color: #666; }
   </style>
 </head>
 <body>
 
-<div id="mensaje">
-  Hola, solo quería decirte algo importante.<br>
-  Bueno, en realidad no tanto.<br>
-  Solo quería que leyeras esto hasta acá.<br>
-  Felicitaciones por nada.<br>
-  Adiós.
-</div>
+<h1 id="mensaje">Hola</h1>
+<button onclick="cambiarMensaje()">Cambiar mensaje</button>
+<p>Clicks: <span id="contador">0</span></p>
+<button onclick="sumarClick()">Sumar click</button>
+<button onclick="cambiarColor()">Cambiar fondo</button>
 
-<button onclick="document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16)">Cambiar fondo</button>
+<script>
+function cambiarMensaje() {
+  const mensajes = ["Adiós"];
+  document.getElementById('mensaje').innerText = mensajes[Math.floor(Math.random()*mensajes.length)];
+}
+
+function sumarClick() {
+  const c = document.getElementById('contador');
+  c.innerText = Number(c.innerText) + 1;
+}
+
+function cambiarColor() {
+  document.body.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+</script>
 
 </body>
 </html>
+
